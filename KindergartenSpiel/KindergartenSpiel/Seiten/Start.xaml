@@ -6,9 +6,12 @@
       xmlns:local="clr-namespace:KindergartenSpiel.Seiten"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Start">
+      Title="Start"
+      Background="Transparent"
+      >
 
-    <Grid>
+    <Grid Background="Transparent">
+        
         
     </Grid>
 </Page>
