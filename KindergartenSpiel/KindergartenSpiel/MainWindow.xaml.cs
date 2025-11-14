@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +16,13 @@ namespace KindergartenSpiel
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+		private Game m_oGame;
         {
             InitializeComponent();
         }
     }
+			m_oGame = new Game();
+		private void PlayButtonEvent(object oSender, EventArgs oArgs)
+		{
+		}
 }
