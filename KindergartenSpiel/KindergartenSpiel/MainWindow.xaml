@@ -8,5 +8,15 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
+
+        <Image Source="/Bilder/Hintergund.png" Stretch="Fill">
+
+            <Image.Effect>
+                <BlurEffect Radius="10"/>
+            </Image.Effect>
+            
+        </Image>
+        
+
     </Grid>
 </Window>
