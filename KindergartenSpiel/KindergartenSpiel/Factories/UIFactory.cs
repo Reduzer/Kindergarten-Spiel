@@ -6,12 +6,13 @@
 
 		private UIFactory()
 		{
-		
+
 		}
 
 		public static UIFactory Instance
 		{
-			get {
+			get
+			{
 				if (oInstance == null) {
 					oInstance = new UIFactory();
 				}
