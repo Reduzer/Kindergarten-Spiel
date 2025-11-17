@@ -26,7 +26,9 @@
 
             <Border
                 Grid.Row="0"
-                Background="#0d1d23"
+                Background="#4d6b18"
+                BorderBrush="Transparent"
+                BorderThickness="1"
                 MouseDown="TitleBar_MouseDown" />
 
             <StackPanel
@@ -67,16 +69,13 @@
                 </Button>
             </StackPanel>
 
-            <!--  Navigationsbereich  -->
-
-
             <Image
                 Grid.Row="1"
                 Source="/Bilder/Hintergund.png"
                 Stretch="Fill">
 
                 <Image.Effect>
-                    <BlurEffect Radius="8" />
+                    <BlurEffect Radius="7" />
                 </Image.Effect>
 
             </Image>
@@ -84,9 +83,9 @@
             <Frame
                 x:Name="NavFrame"
                 Grid.Row="1"
-                Background="Transparent"
-                NavigationUIVisibility="Hidden" Cursor="" />
-
+                Cursor=""
+                Navigated="NavFrame_Navigated"
+                NavigationUIVisibility="Hidden" />
         </Grid>
 
 

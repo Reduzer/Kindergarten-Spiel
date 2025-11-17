@@ -65,5 +65,10 @@ namespace KindergartenSpiel
         {
 
         }
+
+        private void NavFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

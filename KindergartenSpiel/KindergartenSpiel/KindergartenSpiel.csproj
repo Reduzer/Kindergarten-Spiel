@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Bilder\Hintergund.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="SVG\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\Hintergund.png" />
   </ItemGroup>
 
 </Project>
