@@ -3,6 +3,7 @@ using KindergartenSpiel.Seiten;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace KindergartenSpiel
 {
@@ -18,11 +19,7 @@ namespace KindergartenSpiel
 			var fp = new Start();
 			NavFrame.Navigate(fp);
 		}
-
-		public void SetPage(Page nextPage)
-		{
-			NavFrame.Navigate(nextPage);
-		}
+		
 
 		private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
 		{
@@ -54,19 +51,7 @@ namespace KindergartenSpiel
 				((Border)this.Content).CornerRadius = new CornerRadius(0);
 			else
 				((Border)this.Content).CornerRadius = new CornerRadius(20);
-		}
-
-		private void Maximieren_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void PlayButtonEvent(object oSender, EventArgs oArgs)
-		{
-
-		}
-	}
-        }
+		}		
 
         private void NavFrame_Navigated(object sender, NavigationEventArgs e)
         {

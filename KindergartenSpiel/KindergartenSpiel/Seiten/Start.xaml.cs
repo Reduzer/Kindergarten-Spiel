@@ -1,4 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using KindergartenSpiel.Models;
+using KindergartenSpiel.Seiten;
+using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace KindergartenSpiel.Seiten
 {
@@ -9,7 +14,14 @@ namespace KindergartenSpiel.Seiten
 	{
 		public Start()
 		{
-			InitializeComponent();
+            InitializeComponent();
 		}
-	}
+
+		private void Play_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new Uri("/Seiten/GamePage.xaml", UriKind.Relative));
+        }
+
+
+    }
 }
