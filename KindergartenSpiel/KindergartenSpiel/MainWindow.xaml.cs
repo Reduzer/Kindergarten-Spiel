@@ -16,7 +16,7 @@ namespace KindergartenSpiel
 		public MainWindow()
 		{
 			InitializeComponent();
-			var fp = new Start();
+			var fp = new GamePage();
 			NavFrame.Navigate(fp);
 		}
 		

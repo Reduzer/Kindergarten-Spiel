@@ -16,10 +16,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border BorderBrush="White" BorderThickness="1" Background="#4294c8">
 
-
-            <Grid Grid.Row="0" Background="Transparent">
+        <Border
+            Grid.Row="0"
+            Background="#4294c8"
+            BorderBrush="White"
+            BorderThickness="1">
+            <Grid Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -28,124 +31,121 @@
 
 
                 <StackPanel
-            Grid.Column="0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Orientation="Horizontal"
-            Background="Transparent">
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Orientation="Horizontal">
                     <TextBlock
-                Margin="10"
-                FontSize="20"
-                FontWeight="SemiBold"
-                Foreground="White"
-                Text="Punkte: " />
+                        Margin="10"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Foreground="White"
+                        Text="Punkte: " />
                     <TextBlock
-                x:Name="ScoreLabel"
-                FontSize="20"
-                FontWeight="Bold"
-                Foreground="White"
-                Text="0"
-                Margin="10"/>
+                        x:Name="ScoreLabel"
+                        Margin="0,10,10,10"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Foreground="White"
+                        Text="0" />
                 </StackPanel>
 
 
-                <Button
-            x:Name="StartButton"
-            Grid.Column="1"
-            Width="40"
-            Height="40"                              
-            BorderThickness="2"
-            Click="StartGame_Click"
-            Cursor="Hand"
-            FontSize="18"
-            FontWeight="Bold"
-            Foreground="White"
-            Style="{StaticResource Button}">
-
-                    <Path
-                Data="M10,16.5V7.5L16,12M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-                Fill="White"
-                Stretch="Fill" />
-                </Button>
-
-
                 <TextBlock
-            x:Name="StatusLabel"
-            Grid.Column="2"
-            Margin="10,0,0,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Foreground="White"
-            Text="Klicke auf Play"
-            TextWrapping="Wrap" />
-            </Grid>
+                    x:Name="StatusLabel"
+                    Grid.Column="2"
+                    Margin="10,0,10,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    TextWrapping="Wrap" />
 
+            </Grid>
         </Border>
 
-
         <Canvas
-        x:Name="GameCanvas"
-        Grid.Row="1"
-        Background="Transparent" />
-
+            x:Name="GameCanvas"
+            Grid.Row="1"
+            Background="Transparent" />
 
         <Border
-        x:Name="TargetShapeDisplay"
-        Grid.RowSpan="2"
-        Width="200"
-        Height="200"
-        Padding="20"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Background="Transparent"
-        BorderBrush="White"
-        BorderThickness="4"
-        CornerRadius="10"
-        Visibility="Collapsed">
-            <StackPanel
-            Margin="0,-10,0,0"
+            x:Name="TargetShapeDisplay"
+            Grid.RowSpan="2"
+            Width="200"
+            Height="200"
+            Padding="20"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Orientation="Vertical">
-
-
-                <TextBlock
-                Margin="0,0,0,10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                FontSize="18"
-                FontWeight="SemiBold"
-                Foreground="#3F51B5"
-                 />
-
+            Panel.ZIndex="5"
+            Background="#CCFFFFFF"
+            BorderBrush="#4294c8"
+            BorderThickness="6"
+            CornerRadius="10"
+            Visibility="Collapsed">
+            <StackPanel
+                Margin="0,-10,0,0"
+                VerticalAlignment="Center"
+                Orientation="Vertical">
 
                 <ContentControl
-                x:Name="TargetShapeText"
-                Width="100"
-                Height="100"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" />
+                    x:Name="TargetShapeText"
+                    Width="150"
+                    Height="150"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
             </StackPanel>
         </Border>
 
-        <Viewbox 
-        x:Name="RedCrossOverlay" 
-        Grid.RowSpan="2" 
-        Width="300" 
-        Height="300" 
-        HorizontalAlignment="Center" 
-        VerticalAlignment="Center"
-        Visibility="Collapsed" 
-        IsHitTestVisible="False">
 
-            <Path Data="M0,0 L100,100 M0,100 L100,0" 
-              Stroke="Red" 
-              StrokeThickness="10" 
-              StrokeStartLineCap="Round" 
-              StrokeEndLineCap="Round"
-              Stretch="Uniform" 
-              Width="100" 
-              Height="100"/>
+        <Viewbox
+            x:Name="RedCrossOverlay"
+            Grid.RowSpan="2"
+            Width="200"
+            Height="200"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Panel.ZIndex="10"
+            IsHitTestVisible="False"
+            Visibility="Collapsed">
+            <Path
+                Width="200"
+                Height="200"
+                Data="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z"
+                Fill="Red"
+                Stretch="Uniform"
+                Stroke="Red"
+                StrokeEndLineCap="Round"
+                StrokeStartLineCap="Round"
+                StrokeThickness="10" />
         </Viewbox>
+
+        <Button
+            x:Name="StartButton"
+            Grid.RowSpan="2"
+            Width="200"
+            Height="200"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Panel.ZIndex="20"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="5"
+            Click="StartGame_Click"
+            Cursor="Hand"
+            FontSize="72"
+            FontWeight="Bold"
+            Foreground="White"
+            Style="{StaticResource Button}">
+            <Path
+                Data="M10,16.5V7.5L16,12M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                Fill="White"
+                Stretch="Fill" />
+
+
+        </Button>
+
     </Grid>
 </Page>

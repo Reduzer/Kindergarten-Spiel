@@ -49,7 +49,7 @@ namespace KindergartenSpiel.Seiten
 
 
             ScoreLabel.Text = _score.ToString();
-            StatusLabel.Text = "Klicke auf Play!";
+            StartButton.Visibility = Visibility.Visible;
         }
 
         private void CrossTimer_Tick(object sender, EventArgs e)
@@ -57,11 +57,16 @@ namespace KindergartenSpiel.Seiten
             _crossTimer.Stop();
             // Blendet das rote Kreuz aus
             RedCrossOverlay.Visibility = Visibility.Collapsed;
+
+            StartButton.Visibility = Visibility.Visible;
+            StartButton.IsEnabled = true;
         }
 
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
+            StartButton.Visibility = Visibility.Collapsed;
+            StartButton.IsEnabled = false;
             StartNewGame();
         }
 
@@ -71,7 +76,7 @@ namespace KindergartenSpiel.Seiten
             ScoreLabel.Text = _score.ToString();
 
             GameCanvas.Children.Clear();
-            StartButton.IsEnabled = false;
+            
             StartMemoryPhase();
         }
 
@@ -115,7 +120,7 @@ namespace KindergartenSpiel.Seiten
 
         private void StartGamePhase()
         {
-            StatusLabel.Text = $"Klicken Sie auf die Form: {_targetShapeName}";
+            
 
             ClearFallingShapes();
 
@@ -149,7 +154,7 @@ namespace KindergartenSpiel.Seiten
             _memoryTimer.Stop();
             _spawnTimer.Stop();
 
-            StatusLabel.Text = $"Spiel vorbei! Score: {_score}";
+            StatusLabel.Text = $"Score: {_score}";
 
             ClearFallingShapes();
 
@@ -280,12 +285,12 @@ namespace KindergartenSpiel.Seiten
                 // Richtig
                 _score++;
                 ScoreLabel.Text = _score.ToString();
-                StatusLabel.Text = $"Richtig! Weiter so. (Ziel: {_targetShapeName})";
+                
             }
             else
             {
                 // Falsch
-                StatusLabel.Text = $"Falsch geklickt! Du hast {clickedShapeName} statt {_targetShapeName} gewählt.";
+                
                 GameOver();
             }
         }
