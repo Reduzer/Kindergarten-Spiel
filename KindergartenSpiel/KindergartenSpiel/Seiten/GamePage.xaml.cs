@@ -76,7 +76,7 @@ namespace KindergartenSpiel.Seiten
             ScoreLabel.Text = _score.ToString();
 
             GameCanvas.Children.Clear();
-            
+
             StartMemoryPhase();
         }
 
@@ -120,7 +120,7 @@ namespace KindergartenSpiel.Seiten
 
         private void StartGamePhase()
         {
-            
+
 
             ClearFallingShapes();
 
@@ -239,9 +239,13 @@ namespace KindergartenSpiel.Seiten
             StartFallAnimation(shape);
         }
 
-        private void StartFallAnimation(UIElement shape)
+        private void StartFallAnimation(UIElement element) 
         {
+            Shape shape = element as Shape; 
+            if (shape == null) return;
+
             double canvasHeight = GameCanvas.ActualHeight;
+            string shapeType = shape.Tag?.ToString(); 
 
             var anim = new DoubleAnimation
             {
@@ -253,10 +257,17 @@ namespace KindergartenSpiel.Seiten
 
             anim.Completed += (s, e) =>
             {
-
+                
                 if (GameCanvas.Children.Contains(shape))
                 {
+                    
                     GameCanvas.Children.Remove(shape);
+
+                    if (shapeType == _targetShapeName)
+                    {
+                        
+                        GameOver();
+                    }
                 }
             };
 
@@ -275,6 +286,8 @@ namespace KindergartenSpiel.Seiten
 
             if (clickedShape == null) return;
 
+            
+            clickedShape.BeginAnimation(Canvas.TopProperty, null);
 
             GameCanvas.Children.Remove(clickedShape);
 
@@ -285,15 +298,13 @@ namespace KindergartenSpiel.Seiten
                 // Richtig
                 _score++;
                 ScoreLabel.Text = _score.ToString();
-                
+
             }
             else
             {
                 // Falsch
-                
                 GameOver();
             }
         }
     }
 }
-
